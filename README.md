@@ -10,7 +10,7 @@ A simple app that converts MP4 videos to WEBMs which autoplay and loop on Discor
 
 2. Run Start.bat
 3. The app will automatically download and extract FFMPEG and create a folder called images to store the created WEBP files
-4. Drag images or videos into the gui or click the select files button & use an explorer dialogue to select the desired files
+4. Drag images or videos into the gui or click the select files button & use an explorer dialogue to select the desired files - After processing images will be automatically copied to your clipboard, so you can just press Ctrl + V directly into the discord chat you want to share them to.
 5. (Recommended) Create or edit the file: .env to adjust the following:
 ```
 # .env
