@@ -6,8 +6,20 @@ A simple app that converts MP4 videos to WEBMs which autoplay and loop on Discor
 
 1. Install dependencies
 
-``pip install pillow python-dotenv pywin32 pyperclip tkinterdnd2 requests python-Levenshtein``
+```pip install pillow python-dotenv pywin32 pyperclip tkinterdnd2 requests python-Levenshtein```
 
 2. Run Start.bat
 3. The app will automatically download and extract FFMPEG and create a folder called images to store the created WEBP files
 4. Drag images or videos into the gui or click the select files button & use an explorer dialogue to select the desired files
+5. (Recommended) Create or edit the file: .env to adjust the following:
+```
+# .env
+FILENAME_TEMPLATE=Sinulated Preview {index:04d}
+ARTIST_NAME=Sinulated
+COMMENT=Visit Sinulated.art For More!
+START_QUALITY=91
+```
+
+## Details
+
+The intended use of this app is to make grok imagine videos more discord shareable. It attempts to convert the MP4 provided by grok as losslessly as possible while keeping the filesize under the 10MB maximum allowed by discord (without nitro). It does this by starting at a quality level of 91%, if the produced file is larger than 10MB it drops the quality until the resulting file is under 10MB. This *does* mean that some files will have to be processed up to several times, if you're finding that it appears to be doing this more than you'd like, you can decrease the start quality in the .env file. Also, i don't think the artist name and comment are being correctly applied, but i might fix that some day if i update the app
