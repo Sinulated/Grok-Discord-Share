@@ -10,7 +10,7 @@ A simple app that converts MP4 videos to WEBMs which autoplay and loop on Discor
 
 1. Install dependencies
 
-```pip install pillow python-dotenv pywin32 pyperclip tkinterdnd2 requests python-Levenshtein```
+```pip install tkinterdnd2 pillow python-dotenv pywin32 win11toast```
 
 2. Run Start.bat
 3. The app will automatically download and extract FFMPEG and create a folder called images to store the created WEBP files
