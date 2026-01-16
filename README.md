@@ -6,7 +6,7 @@
 A simple app that converts MP4 videos to WEBMs which autoplay and loop on Discord
 
 <p align="center">
-<img width="542" height="492" alt="image" src="https://github.com/user-attachments/assets/f13950f1-9f70-481d-876e-61f52243a00e" />
+<img width="542" height="492" alt="image" src="https://github.com/user-attachments/assets/f4472657-b829-4dbd-acb8-32025dca2715" />
 </p>
 
 ## Instructions
