@@ -5,6 +5,9 @@
 # Grok-Discord-Share
 A simple app that converts MP4 videos to WEBMs which autoplay and loop on Discord
 
+<p align="center">
+<img width="542" height="492" alt="image" src="https://github.com/user-attachments/assets/f13950f1-9f70-481d-876e-61f52243a00e" />
+</p>
 
 ## Instructions
 
