@@ -1,5 +1,13 @@
 # --------------------------------------------------------------
-# Grok to WEBP – By Sinulated.Art - Made With *Shocker* Grok
+# Grok to WEBP – By Sinulated.Art
+# THE FINAL VERSION – 100% WORKING + COMPACT UI CONTROLS
+# Updated:
+#   - silent FFmpeg execution (no console windows on Windows)
+#   - .env loading from cwd first + fallback
+#   - centered & symmetrical bottom controls
+#   - FFmpeg download to current working directory
+#   - reliable Windows toast notifications via win11toast
+#   - overlays fully removed when processing finishes (only drop overlay remains)
 # --------------------------------------------------------------
 
 import os
@@ -268,6 +276,7 @@ class DiscordWebPConverter:
                   bg="#8000ff", fg="white", font=("Helvetica", 11, "bold"), relief="flat", padx=30, pady=10
                   ).place(relx=0.5, rely=0.70, anchor="center")
 
+        # Preview area
         self.preview = tk.Frame(self.root, bg="#121212")
         self.canvas = tk.Canvas(self.preview, bg="#121212", highlightthickness=0)
         self.scrollbar = ttk.Scrollbar(
@@ -334,17 +343,7 @@ class DiscordWebPConverter:
         self.overlay.place(relx=0.5, rely=0.5, anchor="center")
         self.overlay.place_forget()
 
-        self.complete_overlay = tk.Label(
-            self.root,
-            text="Processing Complete!\nFiles copied to clipboard.\n\nClick anywhere to dismiss.",
-            bg="#333333",
-            fg="white",
-            font=("Helvetica", 16, "bold"),
-            justify="center",
-            padx=20,
-            pady=20
-        )
-        self.complete_overlay.place_forget()
+        # No complete_overlay anymore
 
     def _update_scrollregion(self, event=None):
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
@@ -356,25 +355,15 @@ class DiscordWebPConverter:
     def hide_overlay(self):
         self.overlay.place_forget()
 
-    def show_complete_overlay(self):
-        self.complete_overlay.place(relx=0.5, rely=0.5, anchor="center")
-        self.complete_overlay.lift()
-        self.complete_overlay.bind("<Button-1>", self.dismiss_complete_overlay)
-
-    def dismiss_complete_overlay(self, event):
-        self.complete_overlay.place_forget()
-        self.complete_overlay.unbind("<Button-1>")
-
     def notify_user(self):
         """Show Windows toast notification (no click handler) + fallback flash"""
         try:
             if toast is not None:
                 toast(
                     "Processing Complete!",
-                    "Files copied to clipboard.",  # simplified - no "click to open" text
+                    "Files copied to clipboard.",
                     icon=resource_path("512.png"),
                     duration="long"
-                    # no on_click parameter at all
                 )
             else:
                 raise ImportError("win11toast not available")
@@ -521,6 +510,8 @@ class DiscordWebPConverter:
     def process_next(self):
         if not self.processing_queue:
             self.copy_to_clipboard()
+            # Auto-hide drop overlay just in case
+            self.overlay.place_forget()
             return
 
         path = self.processing_queue[0]
@@ -686,7 +677,6 @@ class DiscordWebPConverter:
             pyperclip.copy("\n".join(self.processed))
             messagebox.showinfo("Copied", "Paths copied as text")
 
-        self.show_complete_overlay()
         self.notify_user()
 
     def recopy_last(self):
