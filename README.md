@@ -1,3 +1,7 @@
+<p align="center">
+<img width="128" height="128" alt="512" src="https://github.com/user-attachments/assets/0f339739-5a1a-4234-a6d8-0641a1582c77" />
+</p>
+
 # Grok-Discord-Share
 A simple app that converts MP4 videos to WEBMs which autoplay and loop on Discord
 
