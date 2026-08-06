@@ -20,11 +20,12 @@ A simple app that converts MP4 videos to WEBMs which autoplay and loop on Discor
 4. Drag images or videos into the gui or click the select files button & use an explorer dialogue to select the desired files - After processing images will be automatically copied to your clipboard, so you can just press Ctrl + V directly into the discord chat you want to share them to.
 5. (Recommended) Create or edit the file: .env to adjust the following:
 ```
-# .env
-FILENAME_TEMPLATE=Sinulated Preview {index:04d}
 ARTIST_NAME=Sinulated
 COMMENT=Visit Sinulated.art For More!
 START_QUALITY=91
+FILENAME_TEMPLATE=Sinulated Preview {index:04d}
+MAX_FILESIZE_MB=10
+MAX_WIDTH=800
 ```
 
 ## Details
