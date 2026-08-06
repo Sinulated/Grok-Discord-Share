@@ -5,27 +5,35 @@
 # Grok-Discord-Share
 A simple app that converts MP4 videos to WEBMs which autoplay and loop on Discord
 
+(Now also supports images)
+
 <p align="center">
-<img width="542" height="492" alt="image" src="https://github.com/user-attachments/assets/f4472657-b829-4dbd-acb8-32025dca2715" />
+<img width="595" height="562" alt="image" src="https://github.com/user-attachments/assets/e176a241-278e-4fc4-a2f2-cac2665d2fc4" />
 </p>
 
 ## Instructions
 
-1. Install dependencies
+### Easy way:
 
-```pip install tkinterdnd2 pillow python-dotenv pywin32 win11toast```
+Go to the <a href="https://github.com/Sinulated/Grok-Discord-Share/releases">Releases</a> page & download the latest .exe - Run it inside it's own directory because it will create folders for FFMPEG and your saved WEBPs
+
+### Manual way:
 
 2. Run Start.bat
-3. The app will automatically download and extract FFMPEG and create a folder called images to store the created WEBP files
-4. Drag images or videos into the gui or click the select files button & use an explorer dialogue to select the desired files - After processing images will be automatically copied to your clipboard, so you can just press Ctrl + V directly into the discord chat you want to share them to.
-5. (Recommended) Create or edit the file: .env to adjust the following:
+3. The app will automatically download dependencies and create a folder called images to store the created WEBP files
+4. Drag images or videos into the gui or click the "select files" button & use an explorer dialogue to select the desired files - After processing images will be automatically copied to your clipboard, so you can just press Ctrl + V directly into the discord chat you want to share them to.
+
+## (Recommended) Create or edit the file: .env to adjust the following:
 ```
-# .env
-FILENAME_TEMPLATE=Sinulated Preview {index:04d}
 ARTIST_NAME=Sinulated
 COMMENT=Visit Sinulated.art For More!
 START_QUALITY=91
+FILENAME_TEMPLATE=Sinulated Preview {index:04d}
+MAX_FILESIZE_MB=10
+MAX_WIDTH=800
 ```
+Otherwise the default variables will load every time you start the app.
+
 
 ## Details
 
